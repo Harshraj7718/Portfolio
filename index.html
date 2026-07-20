@@ -29,6 +29,47 @@ a:hover{color:#f0d99a}
 [data-reveal]{opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
 [data-reveal].on{opacity:1;transform:none}
 [data-para]{will-change:transform}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:26px;height:20px;cursor:pointer;z-index:220;background:none;border:0;padding:0}
+.nav-burger span{display:block;width:100%;height:2px;background:#e8e6df;transition:transform .3s,opacity .3s}
+.site-nav.nav-open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-nav.nav-open .nav-burger span:nth-child(2){opacity:0}
+.site-nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:860px){
+  .site-nav{padding:16px 20px !important}
+  .nav-burger{display:flex}
+  .nav-links{position:fixed !important;top:0;right:-100%;width:min(78vw,320px);height:100vh;flex-direction:column !important;align-items:flex-start !important;justify-content:flex-start !important;gap:26px !important;padding:96px 34px 40px;background:#060e0bf5;backdrop-filter:blur(14px);transition:right .4s cubic-bezier(.16,1,.3,1);box-shadow:-30px 0 60px rgba(0,0,0,.4)}
+  .nav-links a{font-size:13px !important}
+  .site-nav.nav-open .nav-links{right:0 !important}
+}
+@media (max-width:480px){
+  .hero-outline,.hero-fill{font-size:44px !important}
+  .hero-script{font-size:30px !important;bottom:-3.2vw !important;right:0 !important}
+  .about-stats{grid-template-columns:1fr !important}
+  .footer-bottom{flex-direction:column !important;gap:8px !important;text-align:center !important}
+}
+@media (min-width:481px) and (max-width:768px){
+  .hero-outline,.hero-fill{font-size:60px !important}
+}
+@media (max-width:820px){
+  .about-grid{grid-template-columns:1fr !important;gap:40px !important}
+}
+@media (max-width:760px){
+  .featured-grid{grid-template-columns:1fr !important;text-align:center !important}
+  .featured-grid img{margin:0 auto !important}
+  .featured-grid a{width:100%;text-align:center !important}
+}
+@media (max-width:600px){
+  .featured-card{padding:34px 22px !important}
+}
+@media (max-width:560px){
+  .leadership-row{grid-template-columns:1fr !important;gap:8px !important;text-align:left !important}
+}
+@media (max-width:500px){
+  .project-cards,.skills-cards{grid-template-columns:1fr !important}
+}
+@media (max-width:400px){
+  .exp-cards{grid-template-columns:1fr !important}
+}
 </style>
 </helmet>
 
@@ -39,9 +80,10 @@ a:hover{color:#f0d99a}
   </div>
 </div>
 
-<nav style="position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;background:linear-gradient(180deg,rgba(3,8,6,.85),rgba(3,8,6,0));backdrop-filter:blur(2px)">
+<nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;background:linear-gradient(180deg,rgba(3,8,6,.85),rgba(3,8,6,0));backdrop-filter:blur(2px)">
   <a href="#top" style="font-family:'Cinzel',serif;font-weight:700;font-size:18px;letter-spacing:.28em;color:#e8e6df">HR<span style="color:#d3b56a">.</span></a>
-  <div style="display:flex;align-items:center;gap:28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase">
+  <button type="button" class="nav-burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" style="display:flex;align-items:center;gap:28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase">
     <a href="#about" style="color:#a4b5a9">About</a>
     <a href="#experience" style="color:#a4b5a9">Experience</a>
     <a href="#projects" style="color:#a4b5a9">Projects</a>
@@ -59,9 +101,9 @@ a:hover{color:#f0d99a}
       <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 6vw">
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.6em;color:rgba(232,230,223,.85);text-transform:uppercase;margin-bottom:26px;text-shadow:0 2px 20px rgba(0,0,0,.8)">Pune, India</div>
         <div data-mouse-para="" style="position:relative;will-change:transform">
-          <div style="position:absolute;top:10px;left:10px;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(64px,12.5vw,180px);line-height:.95;letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px rgba(211,181,106,.35);white-space:nowrap;pointer-events:none;user-select:none">HARSH RAJ</div>
-          <h1 style="position:relative;margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(64px,12.5vw,180px);line-height:.95;letter-spacing:.04em;white-space:nowrap;background:linear-gradient(180deg,#fdf6e3 0%,#e9d5a1 40%,#d3b56a 62%,#8a6d2f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 12px 40px rgba(0,0,0,.75))">HARSH RAJ</h1>
-          <div style="position:absolute;right:-2vw;bottom:-5.2vw;font-family:'Ephesis',cursive;font-size:clamp(48px,7.5vw,110px);line-height:1;color:#f4ead0;transform:rotate(-6deg);text-shadow:0 4px 30px rgba(0,0,0,.85);pointer-events:none">Ai engineer</div>
+          <div class="hero-outline" style="position:absolute;top:10px;left:10px;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(64px,12.5vw,180px);line-height:.95;letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px rgba(211,181,106,.35);white-space:nowrap;pointer-events:none;user-select:none">HARSH RAJ</div>
+          <h1 class="hero-fill" style="position:relative;margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(64px,12.5vw,180px);line-height:.95;letter-spacing:.04em;white-space:nowrap;background:linear-gradient(180deg,#fdf6e3 0%,#e9d5a1 40%,#d3b56a 62%,#8a6d2f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 12px 40px rgba(0,0,0,.75))">HARSH RAJ</h1>
+          <div class="hero-script" style="position:absolute;right:-2vw;bottom:-5.2vw;font-family:'Ephesis',cursive;font-size:clamp(48px,7.5vw,110px);line-height:1;color:#f4ead0;transform:rotate(-6deg);text-shadow:0 4px 30px rgba(0,0,0,.85);pointer-events:none">Ai engineer</div>
         </div>
         <div style="margin-top:7.5vw;font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.2vw,15px);letter-spacing:.42em;color:#e8e6df;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.85)">AI Engineer <span style="color:#d3b56a">|</span> Generative AI &amp; LLM Systems</div>
         <div style="margin-top:26px;display:flex;align-items:center;gap:14px">
@@ -91,7 +133,7 @@ a:hover{color:#f0d99a}
 
 <section id="about" data-screen-label="About" style="position:relative;padding:140px 8vw;overflow:hidden;background:#ece7db">
   <div data-para="-14" style="position:absolute;top:40px;left:-2vw;font-family:'Cinzel',serif;font-size:17vw;font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(42,33,24,.14);white-space:nowrap;pointer-events:none;user-select:none">HARSH RAJ</div>
-  <div style="position:relative;display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:70px;align-items:center;max-width:1240px;margin:0 auto">
+  <div class="about-grid" style="position:relative;display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:70px;align-items:center;max-width:1240px;margin:0 auto">
     <div data-reveal="" style="position:relative">
       <div data-para="8" style="position:absolute;inset:-16px 16px 16px -16px;border:1px solid rgba(211,181,106,.4)"></div>
       <img src="uploads/9adb8480-26ac-4348-9741-83a271e54810.jpg" alt="Portrait of Harsh Raj" style="position:relative;width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:saturate(.92) contrast(1.05)">
@@ -102,7 +144,7 @@ a:hover{color:#f0d99a}
       <h2 data-reveal="" style="font-family:'Cinzel',serif;font-weight:600;font-size:clamp(34px,4.2vw,58px);line-height:1.12;margin:0 0 28px;color:#241f16">Building AI agents that <em style="font-style:italic;color:#8a6d2f">think in graphs</em>, not scripts.</h2>
       <p data-reveal="" style="font-size:17px;line-height:1.75;color:#575c50;margin:0 0 18px;max-width:56ch">I'm Harsh — an AI Engineer specializing in Generative AI, LLM systems and production-grade agentic workflows. I design multi-step agent architectures with LangChain, LangGraph and RAG, and ship them on scalable FastAPI + Postgres backends.</p>
       <p data-reveal="" style="font-size:17px;line-height:1.75;color:#575c50;margin:0 0 40px;max-width:56ch">From ambiguous requirements to measurable outcomes — prototype to production, low-latency and reliable.</p>
-      <div data-reveal="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(211,181,106,.22);border:1px solid rgba(211,181,106,.22)">
+      <div data-reveal="" class="about-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(211,181,106,.22);border:1px solid rgba(211,181,106,.22)">
         <div style="background:#faf7ef;padding:22px 18px">
           <div style="font-family:'Cinzel',serif;font-size:30px;color:#a5832f">1.5%</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:#7a7466;text-transform:uppercase;margin-top:8px">Top JEE 2022 · 1M+ candidates</div>
@@ -130,12 +172,12 @@ a:hover{color:#f0d99a}
       <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:#a4b5a9">AI ENGINEER · CROCCLE · MAY 2025 — MAY 2026</div>
     </div>
     <div data-reveal="" style="position:relative;perspective:1200px">
-      <div data-tilt="" style="position: relative; transition: transform .3s ease; transform-style: preserve-3d; box-shadow: 0 40px 120px rgba(0,0,0,.6),0 0 0 1px rgba(211,181,106,.25); width: 754px; height: 383px">
-        <img src="uploads/experience.png" alt="Croccle experience — gold certificate" style="width: 750px; display: block; height: 380px">
+      <div data-tilt="" style="position:relative;transition:transform .3s ease;transform-style:preserve-3d;box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 0 1px rgba(211,181,106,.25);width:100%;max-width:754px;aspect-ratio:754/383">
+        <img src="uploads/experience.png" alt="Croccle experience — gold certificate" style="width:100%;height:100%;display:block;object-fit:cover">
         <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,0) 40%,rgba(255,240,190,.08) 50%,rgba(255,255,255,0) 60%);pointer-events:none"></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(211,181,106,.18);border:1px solid rgba(211,181,106,.18);margin-top:56px">
+    <div class="exp-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(211,181,106,.18);border:1px solid rgba(211,181,106,.18);margin-top:56px">
       <div data-reveal="" style="background:#060e0b;padding:30px 26px">
         <div style="font-family:'Cinzel',serif;font-size:20px;color:#d3b56a;margin-bottom:12px">NLP Pipelines</div>
         <p style="margin:0;font-size:14.5px;line-height:1.7;color:#a4b5a9">Voice &amp; conversational search query processing — intent recognition accuracy up ~20% over keyword baselines.</p>
@@ -157,13 +199,13 @@ a:hover{color:#f0d99a}
   <div style="max-width:1240px;margin:0 auto;position:relative">
     <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.4em;color:#d3b56a;text-transform:uppercase;margin-bottom:16px">03 / Selected Work</div>
     <h2 data-reveal="" style="font-family:'Cinzel',serif;font-weight:600;font-size:clamp(34px,4.2vw,58px);margin:0 0 64px;color:#e8e6df">Systems in Production</h2>
-    <article data-reveal="" style="position:relative;margin-bottom:40px;border-radius:22px;border:1px solid rgba(211,181,106,.45);padding:50px 44px;background:linear-gradient(150deg,rgba(211,181,106,.14),rgba(255,255,255,.04) 45%,rgba(211,181,106,.06));backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 90px rgba(0,0,0,.55);overflow:hidden;transition:transform .4s ease,box-shadow .4s" style-hover="transform:translateY(-8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 50px 110px rgba(0,0,0,.65),0 0 60px rgba(211,181,106,.15)">
+    <article data-reveal="" class="featured-card" style="position:relative;margin-bottom:40px;border-radius:22px;border:1px solid rgba(211,181,106,.45);padding:50px 44px;background:linear-gradient(150deg,rgba(211,181,106,.14),rgba(255,255,255,.04) 45%,rgba(211,181,106,.06));backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 90px rgba(0,0,0,.55);overflow:hidden;transition:transform .4s ease,box-shadow .4s" style-hover="transform:translateY(-8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 50px 110px rgba(0,0,0,.65),0 0 60px rgba(211,181,106,.15)">
         <div data-para="6" style="position:absolute;top:-80px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(211,181,106,.22),transparent 70%);pointer-events:none"></div>
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
           <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;padding:7px 14px;border-radius:999px;background:rgba(211,181,106,.9);color:#060e0b;font-weight:500">★ FEATURED REPO</span>
           <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;color:#9dbcaa;text-transform:uppercase">github.com — aivora</span>
         </div>
-        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;flex-wrap:wrap">
+        <div class="featured-grid" style="display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;flex-wrap:wrap">
           <img data-zoom="" src="uploads/pasted-1784523631846-0.png" alt="AIVORA — See your brand through AI's eyes" style="width:200px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 40px rgba(110,120,255,.18)">
           <div>
             <h3 style="font-family:'Cinzel',serif;font-size:clamp(34px,4vw,52px);font-weight:700;margin:0 0 10px;background:linear-gradient(180deg,#fdf6e3,#d3b56a 70%);-webkit-background-clip:text;background-clip:text;color:transparent">AIVORA</h3>
@@ -179,7 +221,7 @@ a:hover{color:#f0d99a}
           <a href="#" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:#060e0b;background:linear-gradient(180deg,#f4e3b2,#d3b56a);padding:16px 30px;border-radius:999px;white-space:nowrap;font-weight:600;box-shadow:0 12px 30px rgba(211,181,106,.25);transition:transform .3s" style-hover="transform:translateY(-3px)">VIEW REPO →</a>
         </div>
       </article>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px">
+    <div class="project-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px">
       <article data-reveal="" style="position:relative;border-radius:22px;border:1px solid rgba(255,255,255,.14);padding:44px 38px;background:linear-gradient(150deg,rgba(255,255,255,.09),rgba(255,255,255,.02) 60%);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 30px 70px rgba(0,0,0,.5);transition:transform .4s ease,border-color .4s,box-shadow .4s" style-hover="transform:translateY(-8px);border-color:rgba(211,181,106,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 90px rgba(0,0,0,.6)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:60px;color:rgba(211,181,106,.18);position:absolute;top:18px;right:26px">01</div>
         <h3 style="font-family:'Cinzel',serif;font-size:26px;font-weight:600;color:#e8e6df;margin:0 0 18px;max-width:14ch">Conversational AutoStream AI Agent</h3>
@@ -237,7 +279,7 @@ a:hover{color:#f0d99a}
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px">
+    <div class="skills-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px">
       <div data-reveal="" style="border-radius:20px;border:1px solid rgba(255,255,255,.12);padding:30px 28px;background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.02) 60%);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 24px 55px rgba(0,0,0,.45)">
         <div style="font-family:'Cinzel',serif;font-size:19px;color:#d3b56a;margin-bottom:18px">Programming Languages</div>
         <div style="display:flex;flex-wrap:wrap;gap:9px">
@@ -317,17 +359,17 @@ a:hover{color:#f0d99a}
   <div style="max-width:1240px;margin:0 auto">
     <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.4em;color:#8a6d2f;text-transform:uppercase;margin-bottom:48px">05 / Leadership</div>
     <div style="display:flex;flex-direction:column">
-      <div data-reveal="" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2)">
+      <div data-reveal="" class="leadership-row" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#a5832f;letter-spacing:.2em">2024</div>
         <div><div style="font-family:'Cinzel',serif;font-size:22px;color:#241f16">Eminence Magazine</div><div style="font-size:14px;color:#575c50;margin-top:6px">Lead Designer &amp; Photographer — official college magazine of IIIT Pune</div></div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8272;letter-spacing:.2em">DESIGN</div>
       </div>
-      <div data-reveal="" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2)">
+      <div data-reveal="" class="leadership-row" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#a5832f;letter-spacing:.2em">2023</div>
         <div><div style="font-family:'Cinzel',serif;font-size:22px;color:#241f16">IConclave '23</div><div style="font-size:14px;color:#575c50;margin-top:6px">Public Relations Director — Annual Techno-Cultural Event, IIIT Pune</div></div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8272;letter-spacing:.2em">PR</div>
       </div>
-      <div data-reveal="" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2);border-bottom:1px solid rgba(42,33,24,.2)">
+      <div data-reveal="" class="leadership-row" style="display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(42,33,24,.2);border-bottom:1px solid rgba(42,33,24,.2)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#a5832f;letter-spacing:.2em">2023–24</div>
         <div><div style="font-family:'Cinzel',serif;font-size:22px;color:#241f16">Horizon Photography Club</div><div style="font-size:14px;color:#575c50;margin-top:6px">Core Head — operations &amp; team coordination, IIIT Pune</div></div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8272;letter-spacing:.2em">LEAD</div>
@@ -353,7 +395,7 @@ a:hover{color:#f0d99a}
       <span style="color:#5e7266">+91 62033 67789</span>
       <span style="color:#5e7266">Pune, IN</span>
     </div>
-    <div style="margin-top:90px;padding-top:26px;border-top:1px solid rgba(157,188,170,.12);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5e7266;text-transform:uppercase">
+    <div class="footer-bottom" style="margin-top:90px;padding-top:26px;border-top:1px solid rgba(157,188,170,.12);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5e7266;text-transform:uppercase">
       <span>© 2026 Harsh Raj</span>
       <span>AI Engineer — Generative AI &amp; LLM Systems</span>
     </div>
@@ -374,6 +416,16 @@ class Component extends DCLogic {
     // Force-mute hero video
     const vid = document.querySelector('[data-hero-img]');
     if (vid && vid.tagName === 'VIDEO') { vid.muted = true; vid.volume = 0; }
+
+    // Mobile nav toggle
+    const siteNav = document.querySelector('.site-nav');
+    const burger = document.querySelector('.nav-burger');
+    if (siteNav && burger) {
+      this._onBurger = () => siteNav.classList.toggle('nav-open');
+      burger.addEventListener('click', this._onBurger);
+      this._onNavLinkClick = () => siteNav.classList.remove('nav-open');
+      document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', this._onNavLinkClick));
+    }
 
     // GSAP + ScrollTrigger + Lenis pipeline
     const boot = () => {
@@ -468,6 +520,9 @@ class Component extends DCLogic {
     window.removeEventListener('mousemove', this._onMouseHero);
     window.removeEventListener('scroll', this._onScroll);
     if (this._io) this._io.disconnect();
+    const burger = document.querySelector('.nav-burger');
+    if (burger && this._onBurger) burger.removeEventListener('click', this._onBurger);
+    if (this._onNavLinkClick) document.querySelectorAll('.nav-links a').forEach(a => a.removeEventListener('click', this._onNavLinkClick));
   }
 
   renderVals() {
